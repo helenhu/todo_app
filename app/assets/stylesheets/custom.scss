@@ -1,2 +1,29 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* global */
+
+body {
+	padding-top: 60px;
+}
+
+/* footer */
+
+footer {
+	border-top: 1px solid $gray-light;
+	margin-top: 50px;
+	padding-top: 5px;
+	small {
+		float: left;
+	}
+	nav {
+		float: right
+	}
+	ul {
+		list-style: none;
+		li {
+			float: left;
+			margin-left: 20px;
+		}
+	}
+}
