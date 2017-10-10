@@ -1,3 +1,4 @@
 bojack:
   name: Bojack Horseman
   email: bojack@hollywoo.com
+  password_digest: <%= User.digest('password') %>
