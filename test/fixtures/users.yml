@@ -2,3 +2,12 @@ bojack:
   name: Bojack Horseman
   email: bojack@hollywoo.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+diane:
+  name: Diane Nguyen
+  email: diane@hollywoo.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
