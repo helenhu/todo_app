@@ -84,6 +84,29 @@ input {
 	margin-left: 0;
 }
 
+/* todo list */
+
+.todo_list {
+	list-style: none;
+}
+
+.todo_list label {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+
+.todo_list input {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin:0;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
+}
+
 /* miscellaneous */
 
 .debug_dump {

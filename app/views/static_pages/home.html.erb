@@ -1,4 +1,20 @@
 <% provide(:title, 'Home') %>
-<div class="center jumbotron">
-	<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+
+<% if logged_in? %>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<section class="task_form">
+				<%= render 'shared/task_form' %>
+			</section>
+			<% if current_user.tasks.any? %>
+				<section class="todo_list">
+					<%= render current_user.tasks %>
+				</section>
+			<% end %>
+		</div>
+	</div>
+<% else %>
+	<div class="center jumbotron">
+		<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+	</div>
+<% end %>

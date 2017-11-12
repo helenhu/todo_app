@@ -1,0 +1,28 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+work:
+  content: "Finish work"
+  created_at: <%= 10.minutes.ago %>
+  user: bojack
+
+clean:
+  content: "Clean house"
+  created_at: <%= 3.years.ago %>
+  user: bojack
+
+movie:
+  content: "Make a movie"
+  created_at: <%= 2.hours.ago %>
+  user: bojack
+
+most_recent:
+  content: "Take a nap"
+  created_at: <%= Time.zone.now %>
+  user: bojack
+
+<% 30.times do |n| %>
+task_<%= n %>:
+  content: <%= Faker::Lorem.sentence(3) %>
+  created_at: <%= 42.days.ago %>
+  user: bojack
+<% end %>
