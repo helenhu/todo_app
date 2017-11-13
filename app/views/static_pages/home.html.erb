@@ -6,9 +6,16 @@
 			<section class="task_form">
 				<%= render 'shared/task_form' %>
 			</section>
-			<% if current_user.tasks.any? %>
+			Todo
+			<% if current_user.unchecked_tasks.any? %>
 				<section class="todo_list">
-					<%= render current_user.tasks %>
+					<%= render current_user.unchecked_tasks %>
+				</section>
+			<% end %>
+			Completed
+			<% if current_user.checked_tasks.any? %>
+				<section class="todo_list">
+					<%= render current_user.checked_tasks %>
 				</section>
 			<% end %>
 		</div>

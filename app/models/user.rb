@@ -69,6 +69,16 @@ class User < ApplicationRecord
   	reset_sent_at < 2.hours.ago
   end
 
+  # Return's a user's unchecked tasks.
+  def unchecked_tasks
+    self.tasks.where("checked = FALSE")
+  end
+
+  # Return's a user's checked tasks.
+  def checked_tasks
+    self.tasks.where("checked = TRUE")
+  end
+
 	private
 
 		# Convert email to all lowercase/

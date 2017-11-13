@@ -1,3 +1,7 @@
+<% status = task.checked ? "checked" : "unchecked" %>
 <li id="task-<%= task.id %>">
-	<label><input type="checkbox"><%= task.content %></label>
+	<%= link_to task.content, task, method: :patch, class: "task_update #{status}" %>
+	<% if current_user?(task.user) %>
+		<%= link_to "X", task, method: :delete, class: "task_delete" %>
+	<% end %>
 </li>

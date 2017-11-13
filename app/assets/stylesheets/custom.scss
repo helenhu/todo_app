@@ -90,21 +90,61 @@ input {
 	list-style: none;
 }
 
-.todo_list label {
-  display: block;
-  padding-left: 15px;
-  text-indent: -15px;
+.todo_list li:first-child {
+	border-width: 1px;
+} 
+
+.todo_list li {
+	border-color: #d3d3d3;
+	border-style: solid;
+	border-width: 0px 1px 1px 1px;
+	display: flex;
+	position: relative;
+	width: 100%;
+	a {
+		background-color: #efefef;
+		color: #000;
+		display: inline-block;
+		padding: 5px;
+		text-decoration: none;
+		&:hover {
+			opacity: 0.7;
+		}
+		&.checked {
+			background: #97d187;
+			text-decoration: line-through;
+			&::before {
+				content: '';
+				position: absolute;
+				border-color: #fff;
+				border-style: solid;
+				border-width: 0 2px 2px 0;
+				transform: rotate(45deg);
+				top: 5px;
+				left: 10px;
+				height: 15px;
+				width: 7px;
+			}
+		}
+		&.task_update {
+			flex: 1;
+			padding: 5px 5px 5px 30px;
+		}
+		&.task_delete {
+			background-color: #ce9299;
+			color: #701620;
+			flex-basis: auto;
+			flex-grow: 0px;
+			font-weight: bold;
+			overflow: hidden;
+			padding: 5px 10px;
+		}
+	}
 }
 
-.todo_list input {
-  width: 13px;
-  height: 13px;
-  padding: 0;
-  margin:0;
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
-  *overflow: hidden;
+.task_form .field input{
+	position: relative;
+	top: 5px;
 }
 
 /* miscellaneous */

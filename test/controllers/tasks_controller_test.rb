@@ -19,4 +19,12 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   	end
   	assert_redirected_to login_url
   end
+
+  test "should redirect destroy for wrong task" do
+    log_in_as(users(:diane))
+    assert_no_difference 'Task.count' do
+      delete task_path(@task)
+    end
+    assert_redirected_to root_url
+  end
 end

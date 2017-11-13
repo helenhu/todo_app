@@ -1,7 +1,11 @@
 <%= form_for(@task) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
-	<div class="field">
-		<%= f.text_area :content, placeholder: "Compose new task..." %>
+	<div class="row">
+		<div class="field col-md-10">
+			<%= f.text_field :content, placeholder: "Compose new task..." %>
+		</div>
+		<div class="col-md-2">
+			<%= f.submit "+", class: "btn btn-primary" %>
+		</div>
 	</div>
-	<%= f.submit "+", class: "btn btn-primary" %>
 <% end %>
