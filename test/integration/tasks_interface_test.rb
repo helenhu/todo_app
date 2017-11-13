@@ -22,9 +22,14 @@ class TasksInterfaceTest < ActionDispatch::IntegrationTest
   	assert_redirected_to root_url
   	follow_redirect!
   	assert_match content, response.body
-  	# Delete post
-  	assert_select 'a', text: 'X'
-  	first_task = @user.tasks.first
+    # Update task
+    first_task = @user.tasks.first
+    assert_not first_task.checked
+    patch task_path(first_task)
+    first_task.reload
+    assert first_task.checked
+  	# Delete task
+  	assert_select 'a', class: "task_delete"
   	assert_difference 'Task.count', -1 do 
   		delete task_path(first_task)
   	end
